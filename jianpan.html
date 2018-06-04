@@ -31,6 +31,10 @@
         s: 'souhu.com',
         d: 'dell.com',
     }
+    hashInLocalstorage = JSON.parse(localStorage.getItem('zzz') || 'null')
+    if(hashInLocalstorage){
+        hash = hashInLocalstorage
+    }
     index = 0
     while(index < keys['length']){
         x = document.createElement('div')
