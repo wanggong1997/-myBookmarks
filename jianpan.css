@@ -1,0 +1,36 @@
+*{
+    margin: 0; padding: 0;
+}
+a{
+    text-decoration: none;
+}
+main{
+    margin-top: 25%;
+    text-align: center;
+}
+kbd{
+    border: 1px solid red;
+    padding: 30px 30px;
+    display: inline-block;
+    margin: 2px 3px;
+    text-transform: capitalize;
+    position: relative;
+}
+kbd > button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+kbd:hover > button{
+    display: inline-block;
+}
+#yxx{
+    display: inline-block;
+}
+#yxx>div:nth-child(2){
+margin-left: 1.5px ;
+}
+#y>div:nth-child(3){
+    margin-left: 3px;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>24jianpan</title>
+    <link rel="stylesheet" href="./jianpan.css">
+</head>
+
+<body>
+<header></header>
+<main>
+    <div class="box" id="yxx"></div>
+</main>
+<footer></footer>
+<script>
+    keys = {
+        0:{1:'q',2:'w',3:'e',4:'r',5:'t',6:'y',7:'u',8:'i',9:'o',10:'p',length: 10},
+        1:{1:'a',2:'s',3:'d',4:'f',5:'g',6:'h',7:'j',8:'k',9:'l',length: 9},
+        2:{1:'z',2:'x',3:'c',4:'v',5:'b',6:'n',7:'m',length: 7},
+        length: 3
+    }
+    hash = {
+        q: 'qq.com',
+        w: 'weibo.com',
+        e: 'ele.com',
+        r: 'renren.com',
+        y: 'youyubi.com',
+        u: 'ubar.com',
+        i: 'iqiyi.com',
+        o: 'opera.com',
+        p: 'undefined',
+        a: 'apple.com',
+        s: 'souhu.com',
+        d: 'dell.com',
+    }
+    hashInLocalstorage = JSON.parse(localStorage.getItem('zzz') || 'NULL')
+    if(hashInLocalstorage){
+        hash = hashInLocalstorage
+    }
+    index = 0
+    while(index < keys['length']){
+        x = document.createElement('div')
+        yxx.appendChild(x)
+        rom = keys[index]
+        index = index + 1 
+        index2 = 1 
+    while(index2 <= rom['length']){
+        z = document.createElement('kbd')
+        z.textContent = rom[index2]
+        x.appendChild(z)
+        button = document.createElement('button')
+        button.textContent = '编辑'
+        button.id = rom[index2]
+        button.onclick = function(frank){
+        key = (frank['target']['id'])
+        x1 = prompt('give me')
+        console.log(x1)
+        hash[key] = x1
+        localStorage.setItem('zzz',JSON.stringify(hash))
+        console.log(hash)
+        console.log(key)
+        }
+        z.appendChild(button)
+        index2 = index2 + 1
+    }   
+}
+document.onkeypress = function(frank){
+    key = frank['key']
+    webside = hash[key]
+    console.log(webside)
+    //location.href = 'http://' + webside
+    window.open('http://'+webside,'_blank')
+
+}
+
+    
+</script>
+    
+</body>
+</html>
