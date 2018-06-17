@@ -18,47 +18,56 @@
         length: 3
     }
     hash = {
-        q: 'qq.com',
+        q: 'lol.qq.com',
         w: 'weibo.com',
-        e: 'ele.com',
-        r: 'renren.com',
-        y: 'youyubi.com',
-        u: 'ubar.com',
+        y: 'yy.com',
+        u: 'lianjia.com',
         i: 'iqiyi.com',
-        o: 'opera.com',
-        p: 'undefined',
+        o: 'oppo.com',
         a: 'apple.com',
-        s: 'souhu.com',
         d: 'dell.com',
-    }
-    hashInLocalstorage = JSON.parse(localStorage.getItem('zzz') || 'null')
-    if(hashInLocalstorage){
-        hash = hashInLocalstorage
+        g: 'google.com',
+        x: 'xiedaimala.com'
     }
     index = 0
     while(index < keys['length']){
-        x = document.createElement('div')
-        yxx.appendChild(x)
-        rom = keys[index]
-        index = index + 1 
-        index2 = 1 
-    while(index2 <= rom['length']){
-        z = document.createElement('kbd')
-        z.textContent = rom[index2]
-        x.appendChild(z)
-        button = document.createElement('button')
+        div = document.createElement('div') //定义变量"div" 为<div>标签
+        div.className = 'row' //给div个class
+        yxx.appendChild(div)
+        rom = keys[index]   //第一个数组 第二个数组 第三个数组
+        index = index + 1  //计数
+         index2 = 1  //赋值
+    while(index2 <= rom['length']){ 
+        img = document.createElement('img')
+        if(hash[rom[index2]]){ //每个按钮
+            img.src = 'http://'+ hash[rom[index2]] + '/favicon.ico' //取得网站的图标在根目录下面的favicon.ico
+        }else{
+            img.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
+        }
+        img.onerror = function(xxx){
+            xxx.target.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
+        }
+        button = document.createElement('button') //定义button
         button.textContent = '编辑'
         button.id = rom[index2]
-        button.onclick = function(frank){
+        button.onclick = function(frank){ //frank['target']就是用户点击的元素
         key = (frank['target']['id'])
         x1 = prompt('give me')
         console.log(x1)
         hash[key] = x1
-        localStorage.setItem('zzz',JSON.stringify(hash))
+        localStorage.setItem('wanggong',JSON.stringify(hash))
         console.log(hash)
         console.log(key)
         }
-        z.appendChild(button)
+        span = document.createElement('span')
+        span.textContent = rom[index2]
+        span.className = 'text'
+        kbd = document.createElement('kbd')
+        div.appendChild(kbd)
+        kbd.appendChild(span)
+        kbd.className = 'key'
+        kbd.appendChild(img)
+        kbd.appendChild(button)
         index2 = index2 + 1
     }   
 }
