@@ -4,10 +4,6 @@
 a{
     text-decoration: none;
 }
-body{
-  background: rgb(117, 116, 116) url(./wall.jpg)  no-repeat center center; 
-  background: cover;
-}
 main{
     text-align: center;
     height: 100vh;
